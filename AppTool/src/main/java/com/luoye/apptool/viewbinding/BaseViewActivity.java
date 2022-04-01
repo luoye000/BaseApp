@@ -25,15 +25,10 @@ public abstract class BaseViewActivity<T extends ViewBinding> extends AppCompatA
         setContentView(binding.getRoot());
         context = this;
         ActivityTool.getInstance().addActivity(this);
-        try {
-            initActivity();
-        } catch (Exception e) {
-            Log.i(TAG, "BaseActivity_initActivity_Exception:" + e.getMessage());
-        }
-
+        initActivity();
     }
 
-    protected abstract void initActivity() throws Exception;
+    protected abstract void initActivity();
 
 
     @Override

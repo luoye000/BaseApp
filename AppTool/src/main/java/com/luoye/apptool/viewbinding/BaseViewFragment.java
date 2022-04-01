@@ -37,16 +37,11 @@ public abstract class BaseViewFragment<T extends ViewBinding> extends Fragment i
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = ViewBindingUtil.create(getClass(), inflater, container);
-        try {
-            initFragment();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.i(TAG, "BaseFragment_initFragment_Exception:" + e.getMessage());
-        }
+        initFragment();
         return binding.getRoot();
     }
 
-    protected abstract void initFragment() throws Exception;
+    protected abstract void initFragment();
 
     @Override
     public void onStart(@NonNull LifecycleOwner owner) {

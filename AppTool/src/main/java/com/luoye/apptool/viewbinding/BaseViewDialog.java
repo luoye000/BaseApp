@@ -18,7 +18,7 @@ import com.luoye.apptool.OnBaseListener;
 import com.luoye.apptool.utils.ViewBindingUtil;
 
 
-public abstract class BaseViewDialog<T, E extends ViewBinding> extends Dialog  implements DefaultLifecycleObserver {
+public abstract class BaseViewDialog<T, E extends ViewBinding> extends Dialog implements DefaultLifecycleObserver {
 
     protected E binding;
     protected Context context;
@@ -48,18 +48,13 @@ public abstract class BaseViewDialog<T, E extends ViewBinding> extends Dialog  i
         setCanceledOnTouchOutside(true);//边缘点击消失
         try {
             ((LifecycleOwner) activity).getLifecycle().addObserver(this);
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.i(TAG, "BaseViewDialog: LifecycleOwner 失败 context 非来自 ComponentActivity 以及他的子类");
         }
-        try {
-            initDialog();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.i(TAG, "BaseDialog_initDialog_Exception:" + e.getMessage());
-        }
+        initDialog();
     }
 
-    protected abstract void initDialog() throws Exception;
+    protected abstract void initDialog();
 
     @Override
     public void show() {

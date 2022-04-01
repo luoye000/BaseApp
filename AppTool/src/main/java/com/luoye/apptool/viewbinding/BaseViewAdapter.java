@@ -100,15 +100,10 @@ public abstract class BaseViewAdapter<T, E extends ViewBinding> extends Recycler
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        try {
             initAdapter(holder, position);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.i(TAG, "BaseAdapter_initAdapter_Exception:" + e.getMessage());
-        }
     }
 
-    protected abstract void initAdapter(ViewHolder holder, int position) throws Exception;
+    protected abstract void initAdapter(ViewHolder holder, int position)  ;
 
     @Override
     public int getItemCount() {

@@ -45,16 +45,12 @@ public abstract class BaseDataFragment<B extends ViewDataBinding, V extends View
         binding = DataBindingUtil.inflate(inflater, setLayoutId(), container, false);
         viewModel = new ViewModelProvider(this).get((Class<V>) DataBindingUtils.getViewModelClass(getClass()));
         binding.setLifecycleOwner(this);
-        try {
-            initFragment();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        initFragment();
         return binding.getRoot();
     }
 
     protected abstract int setLayoutId();
 
-    protected abstract void initFragment() throws Exception;
+    protected abstract void initFragment();
 
 }
