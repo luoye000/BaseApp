@@ -1,0 +1,74 @@
+package com.luoye.apptool.viewbinding;
+
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.DefaultLifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.viewbinding.ViewBinding;
+
+import com.luoye.apptool.OnBaseListener;
+import com.luoye.apptool.utils.ViewBindingUtil;
+
+
+public abstract class BaseViewDialog<T, E extends ViewBinding> extends Dialog  implements DefaultLifecycleObserver {
+
+    protected E binding;
+    protected Context context;
+    protected Activity activity;
+    protected OnBaseListener<T> onBaseListener;
+
+    protected String TAG = "---BaseViewDialog";
+
+    public BaseViewDialog(@NonNull Context context, int themeResId, OnBaseListener<T> onBaseListener) {
+        super(context, themeResId);
+        this.context = context;
+        this.activity = (Activity) context;
+        this.onBaseListener = onBaseListener;
+
+
+    }
+
+    public void setOnBaseListener(OnBaseListener<T> onBaseListener) {
+        this.onBaseListener = onBaseListener;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ViewBindingUtil.create(getClass(), LayoutInflater.from(context));
+        setContentView(binding.getRoot());
+        setCanceledOnTouchOutside(true);//边缘点击消失
+        try {
+            ((LifecycleOwner) activity).getLifecycle().addObserver(this);
+        }catch (Exception e){
+            Log.i(TAG, "BaseViewDialog: LifecycleOwner 失败 context 非来自 ComponentActivity 以及他的子类");
+        }
+        try {
+            initDialog();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.i(TAG, "BaseDialog_initDialog_Exception:" + e.getMessage());
+        }
+    }
+
+    protected abstract void initDialog() throws Exception;
+
+    @Override
+    public void show() {
+        super.show();
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        getWindow().setAttributes(lp);
+    }
+
+}
