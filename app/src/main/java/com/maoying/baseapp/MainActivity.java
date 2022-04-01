@@ -2,8 +2,10 @@ package com.maoying.baseapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 
+import com.luoye.apptool.tool.ActivityTool;
 import com.luoye.apptool.viewbinding.BaseViewActivity;
 import com.maoying.baseapp.databinding.ActivityMainBinding;
 
@@ -11,6 +13,7 @@ public class MainActivity extends BaseViewActivity<ActivityMainBinding> {
 
     @Override
     protected void initActivity(){
+
 
     }
 

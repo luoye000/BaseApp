@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.WindowManager;
 
+import androidx.activity.ComponentActivity;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -24,16 +25,21 @@ public abstract class BaseViewDialog<T, E extends ViewBinding> extends Dialog im
     protected Context context;
     protected Activity activity;
     protected OnBaseListener<T> onBaseListener;
-
+    private LifecycleOwner owner;
     protected String TAG = "---BaseViewDialog";
 
-    public BaseViewDialog(@NonNull Context context, int themeResId, OnBaseListener<T> onBaseListener) {
+
+    public BaseViewDialog(@NonNull Context context, int themeResId, LifecycleOwner owner, OnBaseListener<T> onBaseListener) {
         super(context, themeResId);
         this.context = context;
         this.activity = (Activity) context;
+        this.owner = owner;
         this.onBaseListener = onBaseListener;
+    }
 
-
+    public void setOwner(LifecycleOwner owner) {
+        this.owner = owner;
+        owner.getLifecycle().addObserver(this);
     }
 
     public void setOnBaseListener(OnBaseListener<T> onBaseListener) {
@@ -46,10 +52,14 @@ public abstract class BaseViewDialog<T, E extends ViewBinding> extends Dialog im
         binding = ViewBindingUtil.create(getClass(), LayoutInflater.from(context));
         setContentView(binding.getRoot());
         setCanceledOnTouchOutside(true);//边缘点击消失
-        try {
-            ((LifecycleOwner) activity).getLifecycle().addObserver(this);
-        } catch (Exception e) {
-            Log.i(TAG, "BaseViewDialog: LifecycleOwner 失败 context 非来自 ComponentActivity 以及他的子类");
+        if (owner != null) {
+            owner.getLifecycle().addObserver(this);
+        } else {
+            try {
+                ((ComponentActivity)context).getLifecycle().addObserver(this);
+            } catch (Exception e) {
+                Log.i(TAG, "BaseViewDialog: LifecycleOwner 失败 context 非来自 ComponentActivity 以及他的子类");
+            }
         }
         initDialog();
     }

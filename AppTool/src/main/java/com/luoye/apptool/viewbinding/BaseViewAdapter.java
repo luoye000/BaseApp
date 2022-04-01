@@ -15,8 +15,6 @@ import com.luoye.apptool.OnBaseListener;
 import com.luoye.apptool.utils.ViewBindingUtil;
 
 import java.util.ArrayList;
-
-
 /**
  * created by: ls
  * TIME：2021/6/11
@@ -27,7 +25,6 @@ public abstract class BaseViewAdapter<T, E extends ViewBinding> extends Recycler
     protected Context context;
     protected ArrayList<T> objectArrayList;
     protected OnBaseListener<T> onBaseListener;
-
     protected ViewHolder viewHolder;
 
     public BaseViewAdapter(Context context, LifecycleOwner owner, ArrayList<T> objectArrayList) {
