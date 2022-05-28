@@ -1,5 +1,28 @@
 # BaseApp
 
+## 食用方法
+
+### 导入
+
+```
+android {
+    ...
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+}
+dependencies {
+    ...
+    implementation 'com.github.luoye000:BaseApp:v1.1.0'
+} 
+```
+
+### 混淆
+```
+ 1.  混淆 -keep class  包名.databinding.* {*;}
+```
+
 ## 1.介绍 viewBinding,dataBinding 的封装
 
 ### 1.1 viewBinding 关于 activity,Dialog,Fragment,RecyclerView的Adapter 的封装 
@@ -121,28 +144,3 @@ public class ViewDialog extends BaseDataDialog<String,ActivityMainBinding,ViewMo
         /*关闭所有Activity*/
         public void finishAll();
 ```
-
-## 2.配置
-
-### 2.1 build.gradle
-```
-android {
-    ...
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    buildFeatures {
-        viewBinding true
-        dataBinding true
-    }
-}
-```
-
-## 3.使用说明
-```
-1.  混淆 -keep class  包名.databinding.* {*;}
-
-```
-
-
