@@ -21,6 +21,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -282,4 +286,20 @@ public class BaseUtils {
         }
     }
 
+    //线性
+    public static RecyclerView.LayoutManager getLinearLayoutManager(Context context, int orientation) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        linearLayoutManager.setOrientation(orientation);
+        return linearLayoutManager;
+    }
+
+    //流水
+    public static RecyclerView.LayoutManager getStaggeredGridLayoutManager(int spanCount,int orientation) {
+        return new StaggeredGridLayoutManager(spanCount, orientation);
+    }
+
+    //网格
+    public static RecyclerView.LayoutManager getGridLayoutManager(Context context,int spanCount) {
+        return new GridLayoutManager(context, spanCount);
+    }
 }

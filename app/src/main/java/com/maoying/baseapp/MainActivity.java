@@ -14,7 +14,6 @@ public class MainActivity extends BaseViewActivity<ActivityMainBinding> {
     @Override
     protected void initActivity(){
 
-
     }
 
 }

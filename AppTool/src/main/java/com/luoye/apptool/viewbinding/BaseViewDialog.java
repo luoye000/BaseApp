@@ -56,7 +56,7 @@ public abstract class BaseViewDialog<T, E extends ViewBinding> extends Dialog im
             owner.getLifecycle().addObserver(this);
         } else {
             try {
-                ((ComponentActivity)context).getLifecycle().addObserver(this);
+                ((ComponentActivity) context).getLifecycle().addObserver(this);
             } catch (Exception e) {
                 Log.i(TAG, "BaseViewDialog: LifecycleOwner 失败 context 非来自 ComponentActivity 以及他的子类");
             }
@@ -75,5 +75,5 @@ public abstract class BaseViewDialog<T, E extends ViewBinding> extends Dialog im
         lp.gravity = Gravity.CENTER;
         getWindow().setAttributes(lp);
     }
-
 }
+
