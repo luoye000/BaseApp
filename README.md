@@ -14,7 +14,7 @@ android {
 }
 dependencies {
     ...
-    implementation 'com.github.luoye000:BaseApp:v1.1.0'
+    implementation 'com.github.luoye000:BaseApp:Tag'//tag=发行版本
 } 
 ```
 
