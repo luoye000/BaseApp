@@ -20,7 +20,10 @@ dependencies {
 
 ### 混淆
 ```
- 1.  混淆 -keep class  包名.databinding.* {*;}//包名=使用依赖的包名 在其他依赖中使用不能只添加主项目的包名 需添加所有用到依赖的项目的包名
+ -keep class  包名.databinding.* {*;}//包名=使用依赖的包名 在其他依赖中使用不能只添加主项目的包名 需添加所有用到依赖的项目的包名
+ -keep class  使用到的依赖包名.databinding.* {*;}
+ ...
+ -keep class  使用到的依赖包名.databinding.* {*;}
 ```
 
 ## 1.介绍 viewBinding,dataBinding 的封装
