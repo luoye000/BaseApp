@@ -15,6 +15,7 @@ import com.luoye.apptool.OnBaseListener;
 import com.luoye.apptool.utils.ViewBindingUtil;
 
 import java.util.ArrayList;
+
 /**
  * created by: ls
  * TIME：2021/6/11
@@ -84,6 +85,7 @@ public abstract class BaseViewAdapter<T, E extends ViewBinding> extends Recycler
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
         public E binding;
+
         public ViewHolder(@NonNull E binding) {
             super(binding.getRoot());
             this.binding = binding;
@@ -97,10 +99,10 @@ public abstract class BaseViewAdapter<T, E extends ViewBinding> extends Recycler
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            initAdapter(holder, position);
+        initAdapter(holder, objectArrayList.get(position), position);
     }
 
-    protected abstract void initAdapter(ViewHolder holder, int position)  ;
+    protected abstract void initAdapter(ViewHolder holder, T t, int position);
 
     @Override
     public int getItemCount() {
