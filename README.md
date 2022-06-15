@@ -69,7 +69,7 @@ public class ViewDialog extends BaseViewActivity<String,ActivityMainBinding> {
   ```
  public class ViewFragment extends BaseViewAdapter<String,ActivityMainBinding> {
     @Override
-    protected void initAdapter(ViewHolder holder, int position){
+    protected void initAdapter(ViewHolder holder，String str, int position){
         holder.binding.控件id
     }
     
