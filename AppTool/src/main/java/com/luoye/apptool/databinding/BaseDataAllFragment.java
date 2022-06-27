@@ -18,18 +18,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.luoye.apptool.utils.TClassUtils;
 
-
-/*
- * TIME：2022/3/21
- * user：绑定自己ViewModel
- */
-public abstract class BaseDataFragment<B extends ViewDataBinding, V extends ViewModel> extends Fragment implements DefaultLifecycleObserver {
+public abstract class BaseDataAllFragment<B extends ViewDataBinding, A_activity extends ViewModel, M_my extends ViewModel> extends Fragment implements DefaultLifecycleObserver {
 
     protected String TAG = "---BaseFragment";
     protected Context context;
     protected Activity activity;
     protected B binding;
-    protected V viewModel;
+    protected M_my viewModel;
+    protected A_activity activityViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,14 +39,17 @@ public abstract class BaseDataFragment<B extends ViewDataBinding, V extends View
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, setLayoutId(), container, false);
-        viewModel = new ViewModelProvider(this).get((Class<V>) TClassUtils.getViewModelClass(getClass()));
+        viewModel = new ViewModelProvider(this).get((Class<M_my>) TClassUtils.getTClass(getClass(), 2));
+        activityViewModel = new ViewModelProvider(getActivity()).get((Class<A_activity>) TClassUtils.getTClass(getClass(), 1));
         binding.setLifecycleOwner(this);
         initFragment();
         return binding.getRoot();
     }
+
 
     protected abstract int setLayoutId();
 
     protected abstract void initFragment();
 
 }
+

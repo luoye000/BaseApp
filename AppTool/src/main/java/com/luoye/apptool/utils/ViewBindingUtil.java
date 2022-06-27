@@ -29,7 +29,7 @@ public class ViewBindingUtil {
     @SuppressWarnings("unchecked")
     @NonNull
     public static <Binding extends ViewBinding> Binding create(Class<?> clazz, LayoutInflater inflater, ViewGroup root, boolean attachToRoot) {
-        Class<?> bindingClass = getBindingClass(clazz);
+        Class<?> bindingClass =TClassUtils.getViewModelClass(clazz) ;
         Binding binding = null;
         if (bindingClass != null) {
             try {
@@ -42,18 +42,4 @@ public class ViewBindingUtil {
         return Objects.requireNonNull(binding);
     }
 
-    private static Class<?> getBindingClass(Class<?> clazz) {
-        ParameterizedType parameterizedType = (ParameterizedType) clazz.getGenericSuperclass();
-        Type[] types = Objects.requireNonNull(parameterizedType).getActualTypeArguments();
-        Class<?> bindingClass = null;
-        for (Type type : types) {
-            if (type instanceof Class<?>) {
-                Class<?> temp = (Class<?>) type;
-                if (ViewBinding.class.isAssignableFrom(temp)) {
-                    bindingClass = temp;
-                }
-            }
-        }
-        return bindingClass;
-    }
 }

@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.luoye.apptool.OnBaseListener;
-import com.luoye.apptool.utils.DataBindingUtils;
+import com.luoye.apptool.utils.TClassUtils;
 
 /*
  * TIME：2022/3/28
@@ -55,7 +55,7 @@ public abstract class BaseDataDialog<T, B extends ViewDataBinding, V extends Vie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.inflate(getLayoutInflater(), setLayoutId(), null, false);
-        viewModel = new ViewModelProvider((ComponentActivity) context).get((Class<V>) DataBindingUtils.getViewModelClass(getClass()));
+        viewModel = new ViewModelProvider((ComponentActivity) context).get((Class<V>) TClassUtils.getViewModelClass(getClass()));
         setContentView(binding.getRoot());
         if (owner != null) {
             owner.getLifecycle().addObserver(this);

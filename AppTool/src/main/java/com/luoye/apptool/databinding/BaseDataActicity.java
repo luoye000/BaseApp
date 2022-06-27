@@ -11,11 +11,11 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.luoye.apptool.tool.ActivityTool;
-import com.luoye.apptool.utils.DataBindingUtils;
+import com.luoye.apptool.utils.TClassUtils;
 
 /*
  * TIME：2022/3/18
- * user：
+ * user：绑定自己ViewModel
  */
 public abstract class BaseDataActicity<B extends ViewDataBinding, V extends ViewModel> extends AppCompatActivity {
     protected static String TAG = "---BaseDataActicity";
@@ -31,7 +31,7 @@ public abstract class BaseDataActicity<B extends ViewDataBinding, V extends View
         context = this;
         binding = DataBindingUtil.setContentView(this, setLayoutId());
         binding.setLifecycleOwner(this);
-        viewModel = new ViewModelProvider(this).get((Class<V>) DataBindingUtils.getViewModelClass(getClass()));
+        viewModel = new ViewModelProvider(this).get((Class<V>) TClassUtils.getViewModelClass(getClass()));
         initActivity();
     }
 

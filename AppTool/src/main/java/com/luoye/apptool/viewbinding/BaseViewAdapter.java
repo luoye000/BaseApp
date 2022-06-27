@@ -27,12 +27,13 @@ public abstract class BaseViewAdapter<T, E extends ViewBinding> extends Recycler
     protected ArrayList<T> objectArrayList;
     protected OnBaseListener<T> onBaseListener;
     protected ViewHolder viewHolder;
-
+    
     public BaseViewAdapter(Context context, LifecycleOwner owner, ArrayList<T> objectArrayList) {
         this.context = context;
         this.objectArrayList = objectArrayList;
         if (owner != null) owner.getLifecycle().addObserver(this);
     }
+
 
     public void setLifecycleOwner(LifecycleOwner owner) {
         if (owner != null) owner.getLifecycle().addObserver(this);
@@ -94,7 +95,8 @@ public abstract class BaseViewAdapter<T, E extends ViewBinding> extends Recycler
 
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(ViewBindingUtil.create(getClass(), LayoutInflater.from(context)));
+        // return new ViewHolder(ViewBindingUtil.create(getClass(), LayoutInflater.from(context))); v1.1.1
+        return new ViewHolder(ViewBindingUtil.create(getClass(), LayoutInflater.from(context), parent));
     }
 
     @Override
