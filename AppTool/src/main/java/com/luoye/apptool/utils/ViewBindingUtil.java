@@ -29,7 +29,7 @@ public class ViewBindingUtil {
     @SuppressWarnings("unchecked")
     @NonNull
     public static <Binding extends ViewBinding> Binding create(Class<?> clazz, LayoutInflater inflater, ViewGroup root, boolean attachToRoot) {
-        Class<?> bindingClass =TClassUtils.getViewModelClass(clazz) ;
+        Class<?> bindingClass =TClassUtils.getViewBindingClass(clazz) ;
         Binding binding = null;
         if (bindingClass != null) {
             try {

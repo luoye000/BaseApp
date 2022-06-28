@@ -1,6 +1,7 @@
 package com.luoye.apptool.utils;
 
 import androidx.lifecycle.ViewModel;
+import androidx.viewbinding.ViewBinding;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -26,6 +27,28 @@ public class TClassUtils {
         }
         return null;
     }
+
+    /**
+     * 获取 ViewBinding 类型的第一个 泛型的(T.class)
+     *
+     * @param clazz getClazz()
+     * @return T.class
+     */
+    public static Class<?> getViewBindingClass(Class<?> clazz) {
+        ParameterizedType parameterizedType = (ParameterizedType) clazz.getGenericSuperclass();
+        Type[] types = Objects.requireNonNull(parameterizedType).getActualTypeArguments();
+        for (Type type : types) {
+            if (type instanceof Class<?>) {
+                Class<?> temp = (Class<?>) type;
+                if (ViewBinding.class.isAssignableFrom(temp)) return temp;
+            }
+        }
+        return null;
+    }
+
+
+
+
 
     /**
      * 获取 泛型的(T.class)
