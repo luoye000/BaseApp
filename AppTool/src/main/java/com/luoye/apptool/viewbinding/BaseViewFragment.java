@@ -17,7 +17,7 @@ import androidx.viewbinding.ViewBinding;
 
 import com.luoye.apptool.utils.ViewBindingUtil;
 
-public abstract class BaseViewFragment<T extends ViewBinding> extends Fragment implements DefaultLifecycleObserver {
+public abstract class BaseViewFragment<T extends ViewBinding> extends Fragment {
 
     protected String TAG = "---BaseViewFragment";
     protected Context context;
@@ -30,7 +30,6 @@ public abstract class BaseViewFragment<T extends ViewBinding> extends Fragment i
         super.onCreate(savedInstanceState);
         context = getActivity();
         activity = getActivity();
-        getLifecycle().addObserver(this);
     }
 
     @Nullable
@@ -43,8 +42,4 @@ public abstract class BaseViewFragment<T extends ViewBinding> extends Fragment i
 
     protected abstract void initFragment();
 
-    @Override
-    public void onStart(@NonNull LifecycleOwner owner) {
-        DefaultLifecycleObserver.super.onStart(owner);
-    }
 }

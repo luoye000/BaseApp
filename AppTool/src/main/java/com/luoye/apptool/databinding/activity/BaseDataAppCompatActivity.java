@@ -1,4 +1,4 @@
-package com.luoye.apptool.databinding;
+package com.luoye.apptool.databinding.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,12 +13,12 @@ import androidx.lifecycle.ViewModelProvider;
 import com.luoye.apptool.tool.ActivityTool;
 import com.luoye.apptool.utils.TClassUtils;
 
-/*
- * TIME：2022/3/18
- * user：方法已经废弃请转移到 BaseDataAppCompatActivity
+/**
+ * Created by: luoye
+ * Time: 2022/8/1
+ * user: AppCompatActivity 基类
  */
-@Deprecated
-public abstract class BaseDataActicity<B extends ViewDataBinding, V extends ViewModel> extends AppCompatActivity {
+public abstract class BaseDataAppCompatActivity<B extends ViewDataBinding, V extends ViewModel> extends AppCompatActivity {
     protected static String TAG = "---BaseDataActicity";
     protected Context context;
     protected B binding;

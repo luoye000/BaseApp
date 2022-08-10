@@ -1,8 +1,7 @@
-package com.luoye.apptool.viewbinding;
+package com.luoye.apptool.viewbinding.activity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 
 import androidx.annotation.Nullable;
@@ -12,12 +11,7 @@ import androidx.viewbinding.ViewBinding;
 import com.luoye.apptool.tool.ActivityTool;
 import com.luoye.apptool.utils.ViewBindingUtil;
 
-/*
- * TIME：2022/3/18
- * user：方法已经废弃请转移到 BaseViewAppCompatActivity
- */
-@Deprecated
-public abstract class BaseViewActivity<T extends ViewBinding> extends AppCompatActivity {
+public abstract class BaseViewAppCompatActivity<T extends ViewBinding> extends AppCompatActivity {
 
     protected static String TAG = "---";
     protected Context context;

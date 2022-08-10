@@ -18,7 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.luoye.apptool.utils.TClassUtils;
 
-public abstract class BaseDataAllFragment<B extends ViewDataBinding, A_activity extends ViewModel, M_my extends ViewModel> extends Fragment implements DefaultLifecycleObserver {
+public abstract class BaseDataAllFragment<B extends ViewDataBinding, A_activity extends ViewModel, M_my extends ViewModel> extends Fragment {
 
     protected String TAG = "---BaseFragment";
     protected Context context;
@@ -32,7 +32,6 @@ public abstract class BaseDataAllFragment<B extends ViewDataBinding, A_activity 
         super.onCreate(savedInstanceState);
         context = getActivity();
         activity = getActivity();
-        getLifecycle().addObserver(this);
     }
 
     @Nullable

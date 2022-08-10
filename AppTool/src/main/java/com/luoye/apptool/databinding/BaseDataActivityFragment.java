@@ -23,7 +23,7 @@ import com.luoye.apptool.utils.TClassUtils;
  * TIME：2022/6/27
  * user：绑定自己activity 共享ViewModel
  */
-public abstract class BaseDataActivityFragment<B extends ViewDataBinding, V extends ViewModel> extends Fragment implements DefaultLifecycleObserver {
+public abstract class BaseDataActivityFragment<B extends ViewDataBinding, V extends ViewModel> extends Fragment {
 
     protected String TAG = "---BaseFragment";
     protected Context context;
@@ -36,8 +36,8 @@ public abstract class BaseDataActivityFragment<B extends ViewDataBinding, V exte
         super.onCreate(savedInstanceState);
         context = getActivity();
         activity = getActivity();
-        getLifecycle().addObserver(this);
     }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

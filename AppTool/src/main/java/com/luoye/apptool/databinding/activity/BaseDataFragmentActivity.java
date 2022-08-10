@@ -1,24 +1,24 @@
-package com.luoye.apptool.databinding;
+package com.luoye.apptool.databinding.activity;
 
 import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.luoye.apptool.tool.ActivityTool;
 import com.luoye.apptool.utils.TClassUtils;
 
-/*
- * TIME：2022/3/18
- * user：方法已经废弃请转移到 BaseDataAppCompatActivity
+/**
+ * Created by: luoye
+ * Time: 2022/8/1
+ * user: FragmentActivity 基类
  */
-@Deprecated
-public abstract class BaseDataActicity<B extends ViewDataBinding, V extends ViewModel> extends AppCompatActivity {
+public abstract class BaseDataFragmentActivity<B extends ViewDataBinding, V extends ViewModel> extends FragmentActivity {
     protected static String TAG = "---BaseDataActicity";
     protected Context context;
     protected B binding;
