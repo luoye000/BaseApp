@@ -1,5 +1,5 @@
 # BaseApp
-
+[![](https://jitpack.io/v/luoye000/BaseApp.svg)](https://jitpack.io/#luoye000/BaseApp)
 ## 食用方法
 
 ### 导入
