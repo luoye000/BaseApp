@@ -39,7 +39,9 @@ public class ViewBindingUtil {
                 e.printStackTrace();
             }
         }
-        return Objects.requireNonNull(binding);
+
+        if (binding==null) throw new NullPointerException(clazz.getName());
+        return binding;
     }
 
 }
