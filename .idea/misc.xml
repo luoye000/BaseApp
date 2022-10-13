@@ -3,10 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/33998/Desktop/git/BaseApp/app/src/main/res/layout/activity_main.xml" value="0.5536458333333333" />
+        <entry key="..\:/Users/33998/Desktop/git/BaseApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/33998/Desktop/git/BaseApp/app/src/main/res/layout/fragment_complex.xml" value="0.4068582020389249" />
+        <entry key="..\:/Users/33998/Desktop/git/BaseApp/app/src/main/res/layout/fragment_complexF.xml" value="0.30885416666666665" />
         <entry key="..\:/Users/33998/Desktop/git/BaseApp/app/src/main/res/layout/fragment_text1.xml" value="0.414453125" />
         <entry key="..\:/Users/33998/Desktop/git/BaseApp/app/src/main/res/layout/fragment_text2.xml" value="0.5526041666666667" />
         <entry key="..\:/Users/33998/Desktop/git/BaseApp/app/src/main/res/layout/fragment_text3.xml" value="0.5" />
+        <entry key="..\:/Users/33998/Desktop/git/BaseApp/app/src/main/res/layout/item_complex1.xml" value="0.30885416666666665" />
+        <entry key="..\:/Users/33998/Desktop/git/BaseApp/app/src/main/res/layout/item_complex2.xml" value="0.2543822146216332" />
+        <entry key="..\:/Users/33998/Desktop/git/BaseApp/app/src/main/res/layout/item_complex3.xml" value="0.30885416666666665" />
         <entry key="..\:/Users/luoye/Desktop/MyData/BaseApp/app/src/main/res/layout/activity_main.xml" value="0.5536458333333333" />
       </map>
     </option>

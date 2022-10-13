@@ -29,7 +29,7 @@ public abstract class BaseViewAdapter<T, E extends ViewBinding> extends Recycler
     protected OnBaseListener<T> onBaseListener;
     protected ViewHolder viewHolder;
     
-    public BaseViewAdapter(Context context, LifecycleOwner owner, ArrayList<T> objectArrayList) {
+    public BaseViewAdapter(Context context, LifecycleOwner owner, List<T> objectArrayList) {
         this.context = context;
         this.objectArrayList = objectArrayList;
         if (owner != null) owner.getLifecycle().addObserver(this);

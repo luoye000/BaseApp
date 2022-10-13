@@ -1,11 +1,12 @@
-package com.maoying.baseapp;
+package com.maoying.baseapp.fragment;
 
 import com.luoye.apptool.databinding.BaseDataAllFragment;
+import com.maoying.baseapp.R;
 import com.maoying.baseapp.databinding.FragmentText3Binding;
+import com.maoying.baseapp.viewModel.FragModel;
 import com.maoying.baseapp.viewModel.MainModel;
-import com.maoying.baseapp.viewModel.Text3Model;
 
-public class Text3Fragment extends BaseDataAllFragment<FragmentText3Binding, MainModel, Text3Model> {
+public class AllFragment extends BaseDataAllFragment<FragmentText3Binding, MainModel, FragModel> {
     @Override
     protected int setLayoutId() {
         return R.layout.fragment_text3;

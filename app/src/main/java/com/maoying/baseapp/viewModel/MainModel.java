@@ -11,7 +11,7 @@ public class MainModel extends ViewModel {
 
         if (text == null) {
             text = new MediatorLiveData<>();
-            text.postValue(getClass().getName());
+            text.postValue("我是activity的viewModel 时间："+System.currentTimeMillis());
         }
         return text;
     }

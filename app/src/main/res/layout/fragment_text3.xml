@@ -6,7 +6,7 @@
 
         <variable
             name="myData"
-            type="com.maoying.baseapp.viewModel.Text3Model" />
+            type="com.maoying.baseapp.viewModel.FragModel" />
 
         <variable
             name="activityData"

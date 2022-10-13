@@ -19,3 +19,4 @@ rootProject.name = "BaseApp"
 include ':app'
 
 include ':AppTool'
+include ':complexList'
