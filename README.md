@@ -14,12 +14,18 @@ android {
 }
 dependencies {
     ...
-    implementation 'com.github.luoye000:BaseApp:Tag'//tag=发行版本
+    //所有
+    implementation 'com.github.luoye000:BaseApp:1.2.5'//tag=发行版本
+    //基类
+    implementation 'com.github.luoye000.BaseApp:BaseApp:1.2.5'
+    //多布局RecyclerView
+    implementation 'com.github.luoye000.BaseApp:complexlist:1.2.5'
 } 
 ```
 
 ### 混淆
 ```
+ #使用 基类 的需要添加混淆
  -keep class  包名.databinding.* {*;}//包名=使用依赖的包名 在其他依赖中使用不能只添加主项目的包名 需添加所有用到依赖的项目的包名
  -keep class  使用到的依赖包名.databinding.* {*;}
  ...
