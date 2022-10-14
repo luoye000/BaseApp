@@ -1,3 +1,3 @@
 package com.luoye.complexlist.bean
 
-class AdapterBean(var viewType: Int)
+open class AdapterBean(var viewType: Int)

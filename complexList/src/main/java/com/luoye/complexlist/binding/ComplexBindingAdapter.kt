@@ -7,7 +7,7 @@ import androidx.viewbinding.ViewBinding
 import com.luoye.complexlist.bean.AdapterBean
 
 
-class ComplexBindingAdapter<T : AdapterBean>(
+open class ComplexBindingAdapter<T : AdapterBean>(
     var itemBindingViewMap: Map<Int, ItemBindingView<T>>,
     var objectList: List<T>
 ) : RecyclerView.Adapter<ComplexBindingAdapter.ViewHolder>() {

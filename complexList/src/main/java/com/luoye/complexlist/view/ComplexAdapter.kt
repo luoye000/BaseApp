@@ -12,7 +12,7 @@ import com.luoye.complexlist.bean.AdapterBean
  * user:
  *
  */
-class ComplexAdapter<T : AdapterBean>(
+open class ComplexAdapter<T : AdapterBean>(
     var itemViewMap: Map<Int, ItemView<T>>,
     var objectList: List<T>
 ) : RecyclerView.Adapter<ComplexAdapter.ViewHolder>() {

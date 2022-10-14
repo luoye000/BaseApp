@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.luoye.complexlist.bean.AdapterBean
 
-class ItemBindingView<T : AdapterBean>(var itemViewInterface: ItemViewInterface<T>) {
+open class ItemBindingView<T : AdapterBean>(var itemViewInterface: ItemViewInterface<T>) {
 
     interface ItemViewInterface<T> {
         fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : ViewBinding
