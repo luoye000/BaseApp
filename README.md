@@ -1,8 +1,10 @@
 # BaseApp
-[![](https://jitpack.io/v/luoye000/BaseApp.svg)](https://jitpack.io/#luoye000/BaseApp)
+
 ## 食用方法
 
 ### 导入
+
+[![](https://jitpack.io/v/luoye000/BaseApp.svg)](https://jitpack.io/#luoye000/BaseApp)
 
 ```
 android {
@@ -12,14 +14,15 @@ android {
         dataBinding true
     }
 }
+
 dependencies {
     ...
     //所有
-    implementation 'com.github.luoye000:BaseApp:1.2.5'//tag=发行版本
+    implementation 'com.github.luoye000:BaseApp:tag'//tag=发行版本
     //基类
-    implementation 'com.github.luoye000.BaseApp:BaseApp:1.2.5'
+    implementation 'com.github.luoye000.BaseApp:BaseApp:tag'
     //多布局RecyclerView
-    implementation 'com.github.luoye000.BaseApp:complexlist:1.2.5'
+    implementation 'com.github.luoye000.BaseApp:complexlist:tag'
 } 
 ```
 
