@@ -4,13 +4,19 @@ package com.luoye.complexlist.binding
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.luoye.complexlist.bean.AdapterBean
+import com.luoye.complexlist.bean.ComplexBean
 
 
-open class ComplexBindingAdapter<T : AdapterBean>(
-    var itemBindingViewMap: Map<Int, ItemBindingView<T>>,
-    var objectList: List<T>
-) : RecyclerView.Adapter<ComplexBindingAdapter.ViewHolder>() {
+open class ComplexBindingAdapter<T : ComplexBean>() : RecyclerView.Adapter<ComplexBindingAdapter.ViewHolder>() {
+
+    var itemBindingViewMap: Map<Int, ItemBindingView<T>> = mapOf()
+    var objectList: List<T> = mutableListOf()
+
+    constructor(itemBindingViewMap: Map<Int, ItemBindingView<T>>, objectList: List<T>) : this() {
+        this.objectList = objectList
+        this.itemBindingViewMap = itemBindingViewMap
+    }
+
 
     //获取类型
     override fun getItemViewType(position: Int): Int {
@@ -22,15 +28,20 @@ open class ComplexBindingAdapter<T : AdapterBean>(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = itemBindingViewMap[viewType]?: throw NullPointerException("itemViewMap.get(viewType)==null")
-        return ViewHolder(itemView.itemViewInterface.onCreateViewHolder(parent,viewType))
+        val itemView = itemBindingViewMap[viewType]
+            ?: throw NullPointerException("itemViewMap.get(viewType)==null")
+        return ViewHolder(itemView.itemViewInterface.onCreateViewHolder(parent, viewType))
     }
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemBindingViewMap[objectList[position].viewType]?.itemViewInterface?.onBindViewHolder(objectList[position],holder,position)
+        itemBindingViewMap[objectList[position].viewType]?.itemViewInterface?.onBindViewHolder(
+            objectList[position],
+            holder.binding,
+            position
+        )
     }
 
-    class ViewHolder(var binding: ViewBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: ViewBinding) : RecyclerView.ViewHolder(binding.root)
 
 }

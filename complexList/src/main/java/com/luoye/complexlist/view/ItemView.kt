@@ -2,7 +2,7 @@ package com.luoye.complexlist.view
 
 import android.view.View
 import android.view.ViewGroup
-import com.luoye.complexlist.bean.AdapterBean
+import com.luoye.complexlist.bean.ComplexBean
 
 /**
  *
@@ -11,7 +11,7 @@ import com.luoye.complexlist.bean.AdapterBean
  * user:
  *
  */
-open class ItemView<T : AdapterBean>(var itemViewInterface: ItemViewInterface<T>) {
+open class ItemView<T : ComplexBean>(var itemViewInterface: ItemViewInterface<T>) {
 
     interface ItemViewInterface<T> {
         fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : View

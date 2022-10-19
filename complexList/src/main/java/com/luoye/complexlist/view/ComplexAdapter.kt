@@ -3,7 +3,7 @@ package com.luoye.complexlist.view
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.luoye.complexlist.bean.AdapterBean
+import com.luoye.complexlist.bean.ComplexBean
 
 /**
  *
@@ -12,10 +12,14 @@ import com.luoye.complexlist.bean.AdapterBean
  * user:
  *
  */
-open class ComplexAdapter<T : AdapterBean>(
-    var itemViewMap: Map<Int, ItemView<T>>,
-    var objectList: List<T>
-) : RecyclerView.Adapter<ComplexAdapter.ViewHolder>() {
+open class ComplexAdapter<T : ComplexBean>() : RecyclerView.Adapter<ComplexAdapter.ViewHolder>() {
+    var itemViewMap: Map<Int, ItemView<T>> = mapOf();
+    var objectList: List<T> = mutableListOf()
+
+    constructor(itemViewMap: Map<Int, ItemView<T>>, objectList: List<T>) : this() {
+        this.itemViewMap = itemViewMap
+        this.objectList = objectList
+    }
 
     //获取类型
     override fun getItemViewType(position: Int): Int {
@@ -41,6 +45,6 @@ open class ComplexAdapter<T : AdapterBean>(
         )
     }
 
-    class ViewHolder(var view: View) : RecyclerView.ViewHolder(view)
+    class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
 }
