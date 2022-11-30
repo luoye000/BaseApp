@@ -13,10 +13,10 @@ import com.luoye.complexlist.bean.ComplexBean
  *
  */
 open class ComplexAdapter<T : ComplexBean>() : RecyclerView.Adapter<ComplexAdapter.ViewHolder>() {
-    var itemViewMap: Map<Int, ItemView<T>> = mapOf();
-    var objectList: List<T> = mutableListOf()
+    var itemViewMap: MutableMap<Int, ItemView<T>> = mutableMapOf();
+    var objectList: MutableList<T> = mutableListOf()
 
-    constructor(itemViewMap: Map<Int, ItemView<T>>, objectList: List<T>) : this() {
+    constructor(itemViewMap: MutableMap<Int, ItemView<T>>, objectList: MutableList<T>) : this() {
         this.itemViewMap = itemViewMap
         this.objectList = objectList
     }

@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/AppTool" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/complexList" />
+            <option value="$PROJECT_DIR$/ktBase" />
           </set>
         </option>
       </GradleProjectSettings>
