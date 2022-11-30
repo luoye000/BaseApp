@@ -2,9 +2,9 @@
 
 ## 食用方法
 
-### 导入
-
-[![](https://jitpack.io/v/luoye000/BaseApp.svg)](https://jitpack.io/#luoye000/BaseApp)
+### 提示
+项目 1.3.0 开始向kt语言转换 1.3.0 后不建议使用导入所有的包 KtBase 当前处于测试阶段谨慎使用！！
+### 导入 [![](https://jitpack.io/v/luoye000/BaseApp.svg)](https://jitpack.io/#luoye000/BaseApp)
 
 ```
 android {
@@ -18,11 +18,13 @@ android {
 dependencies {
     ...
     //所有
-    implementation 'com.github.luoye000:BaseApp:tag'//tag=发行版本
-    //基类
-    implementation 'com.github.luoye000.BaseApp:BaseApp:tag'
+    implementation 'com.github.luoye000:BaseApp:1.3.0'
+    //java基类
+    implementation 'com.github.luoye000.BaseApp:BaseApp:1.3.0'
+    //kt基类 
+    implementation 'com.github.luoye000.BaseApp:KtBase:1.3.0'
     //多布局RecyclerView
-    implementation 'com.github.luoye000.BaseApp:complexlist:tag'
+    implementation 'com.github.luoye000.BaseApp:complexlist:1.3.0'
 } 
 ```
 
