@@ -31,7 +31,7 @@ abstract class BaseViewAdapter<T, V : ViewBinding>(
     }
 
 
-    class ViewHolder<V :ViewBinding>(var binding: V) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder<V :ViewBinding>(val binding: V) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder<V> {
         return ViewHolder(ViewBindingUtil.create(javaClass, LayoutInflater.from(context), parent))

@@ -11,10 +11,7 @@ import com.luoye.complexlist.bean.ComplexBean
  * user:
  *
  */
-open class ItemView<T : ComplexBean>(var itemViewInterface: ItemViewInterface<T>) {
-
-    interface ItemViewInterface<T> {
-        fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : View
-        fun onBindViewHolder(bean: T, holder: ComplexAdapter.ViewHolder, position: Int)
-    }
+interface ItemView<T : ComplexBean> {
+    fun onCreateViewHolder(parent: ViewGroup, viewType: Int): View
+    fun onBindViewHolder(bean: T, holder: ComplexAdapter.ViewHolder, position: Int)
 }

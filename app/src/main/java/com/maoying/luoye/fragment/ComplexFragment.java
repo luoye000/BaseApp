@@ -1,4 +1,4 @@
-package com.maoying.baseapp.fragment;
+package com.maoying.luoye.fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,13 +8,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.luoye.apptool.lazy.LazyInterFace;
 import com.luoye.apptool.utils.BaseUtils;
+import com.luoye.apptool.utils.LogUtils;
 import com.luoye.apptool.viewbinding.BaseViewFragment;
 import com.luoye.complexlist.bean.ComplexBean;
 import com.luoye.complexlist.view.ComplexAdapter;
 import com.luoye.complexlist.view.ItemView;
-import com.maoying.baseapp.R;
-import com.maoying.baseapp.databinding.FragmentComplexBinding;
+import com.maoying.luoye.R;
+import com.maoying.luoye.databinding.FragmentComplexBinding;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +28,14 @@ import java.util.Map;
  * Time: 2022/10/13
  * user:
  */
-public class ComplexFragment extends BaseViewFragment<FragmentComplexBinding> {
+public class ComplexFragment extends BaseViewFragment<FragmentComplexBinding> implements LazyInterFace {
+
+
+    @Override
+    public void lazyInit() {
+
+        LogUtils.i(TAG,"lazyInit");
+    }
 
     @Override
     protected void initFragment() {
@@ -34,7 +43,7 @@ public class ComplexFragment extends BaseViewFragment<FragmentComplexBinding> {
 
         Map<Integer, ItemView<ComplexBean>> viewMap = new HashMap<>();
 
-        viewMap.put(0, new ItemView<>(new ItemView.ItemViewInterface<ComplexBean>() {
+        viewMap.put(0, new ItemView<ComplexBean>() {
             @NonNull
             @Override
             public View onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -49,9 +58,9 @@ public class ComplexFragment extends BaseViewFragment<FragmentComplexBinding> {
                 textView.setOnClickListener(v -> BaseUtils.makeLongText(context, "item" + position));
 
             }
-        }));
+        });
 
-        viewMap.put(1, new ItemView<>(new ItemView.ItemViewInterface<ComplexBean>() {
+        viewMap.put(1, new ItemView<ComplexBean>() {
             @NonNull
             @Override
             public View onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -66,9 +75,9 @@ public class ComplexFragment extends BaseViewFragment<FragmentComplexBinding> {
                 textView.setOnClickListener(v -> BaseUtils.makeLongText(context, "item" + position));
 
             }
-        }));
+        });
 
-        viewMap.put(2, new ItemView<>(new ItemView.ItemViewInterface<ComplexBean>() {
+        viewMap.put(2, new ItemView<ComplexBean>() {
             @NonNull
             @Override
             public View onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -83,7 +92,7 @@ public class ComplexFragment extends BaseViewFragment<FragmentComplexBinding> {
                 textView.setOnClickListener(v -> BaseUtils.makeLongText(context, "item" + position));
 
             }
-        }));
+        });
 
 
         List<ComplexBean> list = new ArrayList<>();
@@ -117,6 +126,7 @@ public class ComplexFragment extends BaseViewFragment<FragmentComplexBinding> {
         binding.recyclerView.setAdapter(complexAdapter);
 
     }
+
 
 }
 

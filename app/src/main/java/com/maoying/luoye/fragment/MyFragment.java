@@ -1,10 +1,10 @@
-package com.maoying.baseapp.fragment;
+package com.maoying.luoye.fragment;
 
 
 import com.luoye.apptool.databinding.BaseDataFragment;
-import com.maoying.baseapp.R;
-import com.maoying.baseapp.databinding.FragmentText1Binding;
-import com.maoying.baseapp.viewModel.FragModel;
+import com.maoying.luoye.R;
+import com.maoying.luoye.databinding.FragmentText1Binding;
+import com.maoying.luoye.viewModel.FragModel;
 
 public class MyFragment extends BaseDataFragment<FragmentText1Binding, FragModel> {
     @Override

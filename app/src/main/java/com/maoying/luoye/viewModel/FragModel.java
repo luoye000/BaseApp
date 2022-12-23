@@ -1,4 +1,4 @@
-package com.maoying.baseapp.viewModel;
+package com.maoying.luoye.viewModel;
 
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.ViewModel;

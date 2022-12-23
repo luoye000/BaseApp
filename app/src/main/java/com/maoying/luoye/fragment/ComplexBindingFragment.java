@@ -1,4 +1,4 @@
-package com.maoying.baseapp.fragment;
+package com.maoying.luoye.fragment;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -12,10 +12,10 @@ import com.luoye.apptool.viewbinding.BaseViewFragment;
 import com.luoye.complexlist.bean.ComplexBean;
 import com.luoye.complexlist.binding.ComplexBindingAdapter;
 import com.luoye.complexlist.binding.ItemBindingView;
-import com.maoying.baseapp.databinding.FragmentComplexBinding;
-import com.maoying.baseapp.databinding.ItemComplex1Binding;
-import com.maoying.baseapp.databinding.ItemComplex2Binding;
-import com.maoying.baseapp.databinding.ItemComplex3Binding;
+import com.maoying.luoye.databinding.FragmentComplexBinding;
+import com.maoying.luoye.databinding.ItemComplex1Binding;
+import com.maoying.luoye.databinding.ItemComplex2Binding;
+import com.maoying.luoye.databinding.ItemComplex3Binding;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -35,9 +35,9 @@ public class ComplexBindingFragment extends BaseViewFragment<FragmentComplexBind
     protected void initFragment() {
 
 
-        Map<Integer, ItemBindingView<ComplexBean>> viewMap = new HashMap<>();
+        Map<Integer, ItemBindingView<ComplexBean, ?>> viewMap = new HashMap<>();
 
-        viewMap.put(0, new ItemBindingView<>(new ItemBindingView.ItemViewInterface<ComplexBean, ItemComplex1Binding>() {
+        viewMap.put(0, new ItemBindingView<ComplexBean, ItemComplex1Binding>() {
             @NonNull
             @Override
             public ItemComplex1Binding onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -51,9 +51,9 @@ public class ComplexBindingFragment extends BaseViewFragment<FragmentComplexBind
                 ((ItemComplex1Binding) binding).text.setOnClickListener(v -> BaseUtils.makeLongText(context, "item" + position));
 
             }
-        }));
+        });
 
-        viewMap.put(1, new ItemBindingView<>(new ItemBindingView.ItemViewInterface<ComplexBean, ItemComplex2Binding>() {
+        viewMap.put(1, new ItemBindingView<ComplexBean, ItemComplex2Binding>() {
             @NonNull
             @Override
             public ItemComplex2Binding onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -66,9 +66,9 @@ public class ComplexBindingFragment extends BaseViewFragment<FragmentComplexBind
                 ((ItemComplex2Binding) binding).text.setOnClickListener(v -> BaseUtils.makeLongText(context, "item" + position));
 
             }
-        }));
+        });
 
-        viewMap.put(2, new ItemBindingView<>(new ItemBindingView.ItemViewInterface<ComplexBean, ItemComplex3Binding>() {
+        viewMap.put(2, new ItemBindingView<ComplexBean, ItemComplex3Binding>() {
             @NonNull
             @Override
             public ItemComplex3Binding onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -80,7 +80,7 @@ public class ComplexBindingFragment extends BaseViewFragment<FragmentComplexBind
                 ((ItemComplex3Binding) binding).text.setText("这是第三类样式");
                 ((ItemComplex3Binding) binding).text.setOnClickListener(v -> BaseUtils.makeLongText(context, "item" + position));
             }
-        }));
+        });
 
 
         List<ComplexBean> list = new ArrayList<>();

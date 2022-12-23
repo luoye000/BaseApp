@@ -1,23 +1,27 @@
-package com.maoying.baseapp;
-
+package com.maoying.luoye;
 
 import com.luoye.apptool.databinding.activity.BaseDataAppCompatActivity;
-import com.maoying.baseapp.fragment.ActivityFragment;
-import com.maoying.baseapp.databinding.ActivityMainBinding;
-import com.maoying.baseapp.fragment.AllFragment;
-import com.maoying.baseapp.fragment.ComplexBindingFragment;
-import com.maoying.baseapp.fragment.ComplexFragment;
-import com.maoying.baseapp.fragment.MyFragment;
-import com.maoying.baseapp.viewModel.MainModel;
 import com.luoye.apptool.utils.BaseUtils;
+import com.maoying.luoye.databinding.ActivityBindingTextBinding;
+import com.maoying.luoye.databinding.ActivityMainBinding;
+import com.maoying.luoye.fragment.ActivityFragment;
+import com.maoying.luoye.fragment.AllFragment;
+import com.maoying.luoye.fragment.ComplexBindingFragment;
+import com.maoying.luoye.fragment.ComplexFragment;
+import com.maoying.luoye.fragment.MyFragment;
+import com.maoying.luoye.viewModel.MainModel;
 
-public class MainActivity extends BaseDataAppCompatActivity<ActivityMainBinding, MainModel> {
+/**
+ * Created by: luoye
+ * Time: 2022/12/23
+ * user:
+ */
+public class BindingTextActivity extends BaseDataAppCompatActivity<ActivityBindingTextBinding, MainModel> {
 
     MyFragment myFragment;
     ActivityFragment activityFragment;
     AllFragment allFragment;
-    ComplexBindingFragment complexbindingFragment;
-    ComplexFragment complexFragment;
+
 
     @Override
     protected int setLayoutId() {
@@ -33,8 +37,7 @@ public class MainActivity extends BaseDataAppCompatActivity<ActivityMainBinding,
         myFragment = new MyFragment();
         activityFragment = new ActivityFragment();
         allFragment = new AllFragment();
-        complexbindingFragment = new ComplexBindingFragment();
-        complexFragment = new ComplexFragment();
+
 
         BaseUtils.switchFragment(this, binding.frameLayout.getId(), myFragment).commit();
 
@@ -57,15 +60,6 @@ public class MainActivity extends BaseDataAppCompatActivity<ActivityMainBinding,
         });
 
 
-        binding.complex.setOnClickListener(view -> {
-            viewModel.getText().postValue("这是多布局list样式演示 使用view");
-            BaseUtils.switchFragment(this, binding.frameLayout.getId(), complexFragment).commit();
-        });
-
-        binding.complexBinding.setOnClickListener(view -> {
-            viewModel.getText().postValue("这是多布局list样式演示 使用viewBinging");
-            BaseUtils.switchFragment(this, binding.frameLayout.getId(), complexbindingFragment).commit();
-        });
 
     }
 

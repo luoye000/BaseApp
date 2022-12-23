@@ -33,12 +33,12 @@ open class ComplexAdapter<T : ComplexBean>() : RecyclerView.Adapter<ComplexAdapt
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView =
             itemViewMap[viewType] ?: throw NullPointerException("itemViewMap.get(viewType)==null")
-        return ViewHolder(itemView.itemViewInterface.onCreateViewHolder(parent, viewType))
+        return ViewHolder(itemView.onCreateViewHolder(parent, viewType))
     }
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemViewMap[objectList[position].viewType]?.itemViewInterface?.onBindViewHolder(
+        itemViewMap[objectList[position].viewType]?.onBindViewHolder(
             objectList[position],
             holder,
             position

@@ -1,4 +1,4 @@
-package com.maoying.baseapp;
+package com.maoying.luoye;
 
 import org.junit.Test;
 

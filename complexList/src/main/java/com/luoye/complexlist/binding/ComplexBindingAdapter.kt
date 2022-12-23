@@ -9,10 +9,10 @@ import com.luoye.complexlist.bean.ComplexBean
 
 open class ComplexBindingAdapter<T : ComplexBean>() : RecyclerView.Adapter<ComplexBindingAdapter.ViewHolder>() {
 
-    var itemBindingViewMap: MutableMap<Int, ItemBindingView<T>> = mutableMapOf()
+    var itemBindingViewMap: MutableMap<Int, ItemBindingView<T,*>> = mutableMapOf()
     var objectList: List<T> = mutableListOf()
 
-    constructor(itemBindingViewMap: MutableMap<Int, ItemBindingView<T>>, objectList: List<T>) : this() {
+    constructor(itemBindingViewMap: MutableMap<Int,ItemBindingView<T,*>>, objectList: List<T>) : this() {
         this.objectList = objectList
         this.itemBindingViewMap = itemBindingViewMap
     }
@@ -30,12 +30,12 @@ open class ComplexBindingAdapter<T : ComplexBean>() : RecyclerView.Adapter<Compl
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = itemBindingViewMap[viewType]
             ?: throw NullPointerException("itemViewMap.get(viewType)==null")
-        return ViewHolder(itemView.itemViewInterface.onCreateViewHolder(parent, viewType))
+        return ViewHolder(itemView.onCreateViewHolder(parent, viewType))
     }
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemBindingViewMap[objectList[position].viewType]?.itemViewInterface?.onBindViewHolder(
+        itemBindingViewMap[objectList[position].viewType]?.onBindViewHolder(
             objectList[position],
             holder.binding,
             position
