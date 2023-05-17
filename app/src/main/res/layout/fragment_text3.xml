@@ -6,11 +6,11 @@
 
         <variable
             name="myData"
-            type="com.maoying.luoye.viewModel.FragModel" />
+            type="com.text.luoye.viewModel.FragModel" />
 
         <variable
             name="activityData"
-            type="com.maoying.luoye.viewModel.MainModel" />
+            type="com.text.luoye.viewModel.MainModel" />
 
 
     </data>

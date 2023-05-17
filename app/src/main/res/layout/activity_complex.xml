@@ -6,7 +6,7 @@
     <data>
         <variable
             name="mainViewModel"
-            type="com.maoying.luoye.viewModel.MainModel" />
+            type="com.text.luoye.viewModel.MainModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

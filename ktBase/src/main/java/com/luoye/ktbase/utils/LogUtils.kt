@@ -1,10 +1,11 @@
 package com.luoye.ktbase.utils
-
 import android.util.Log
+import com.luoye.ktbase.BuildConfig
+
 
 /**
  *
- * Created by: luoye
+ * Created by: 
  * Time: 2022/11/30
  * user: 日志工具
  *
@@ -12,7 +13,11 @@ import android.util.Log
 open class LogUtils {
     
     companion object{
-        private var isDebug = true
+        private var isDebug = BuildConfig.DEBUG
+
+        private var TAG="---LogUtils"
+
+        fun setTAG(tag:String){ TAG=tag }
 
         fun setDebug(debug: Boolean) { isDebug = debug }
 
@@ -27,23 +32,23 @@ open class LogUtils {
         fun d(tag: String, msg: String) { if (isDebug) Log.d(tag, msg) }
 
         fun i(msg: String) {
-            if (isDebug) Log.i("---", msg)
+            if (isDebug) Log.i(TAG, msg)
         }
 
         fun v(msg: String) {
-            if (isDebug) Log.v("---", msg)
+            if (isDebug) Log.v(TAG, msg)
         }
 
         fun e(msg: String) {
-            if (isDebug) Log.e("---", msg)
+            if (isDebug) Log.e(TAG, msg)
         }
 
         fun w(msg: String) {
-            if (isDebug) Log.w("---", msg)
+            if (isDebug) Log.w(TAG, msg)
         }
 
         fun d(msg: String) {
-            if (isDebug) Log.d("---", msg)
+            if (isDebug) Log.d(TAG, msg)
         }
     }
 }

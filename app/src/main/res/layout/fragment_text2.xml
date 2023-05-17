@@ -6,7 +6,7 @@
 
         <variable
             name="activityData"
-            type="com.maoying.luoye.viewModel.MainModel" />
+            type="com.text.luoye.viewModel.MainModel" />
 
 
     </data>

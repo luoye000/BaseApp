@@ -12,14 +12,12 @@ import com.luoye.complexlist.bean.ComplexBean
  * user:
  *
  */
-open class ComplexAdapter<T : ComplexBean>() : RecyclerView.Adapter<ComplexAdapter.ViewHolder>() {
-    var itemViewMap: MutableMap<Int, ItemView<T>> = mutableMapOf();
+open class ComplexAdapter<T : ComplexBean>(
+    val itemViewMap: MutableMap<Int, ItemView<T>>,
     var objectList: MutableList<T> = mutableListOf()
+) : RecyclerView.Adapter<ComplexAdapter.ViewHolder>() {
 
-    constructor(itemViewMap: MutableMap<Int, ItemView<T>>, objectList: MutableList<T>) : this() {
-        this.itemViewMap = itemViewMap
-        this.objectList = objectList
-    }
+
 
     //获取类型
     override fun getItemViewType(position: Int): Int {

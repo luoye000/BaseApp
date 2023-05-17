@@ -1,12 +1,11 @@
 package com.luoye.ktbase.utils
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.Toast
 
 /**
  *
- * Created by: luoye
+ * Created by: 
  * Time: 2022/11/30
  * user: 更好的Toast
  *

@@ -7,16 +7,10 @@ import androidx.viewbinding.ViewBinding
 import com.luoye.complexlist.bean.ComplexBean
 
 
-open class ComplexBindingAdapter<T : ComplexBean>() : RecyclerView.Adapter<ComplexBindingAdapter.ViewHolder>() {
-
-    var itemBindingViewMap: MutableMap<Int, ItemBindingView<T,*>> = mutableMapOf()
-    var objectList: List<T> = mutableListOf()
-
-    constructor(itemBindingViewMap: MutableMap<Int,ItemBindingView<T,*>>, objectList: List<T>) : this() {
-        this.objectList = objectList
-        this.itemBindingViewMap = itemBindingViewMap
-    }
-
+open class ComplexBindingAdapter<T : ComplexBean>(
+    val itemBindingViewMap: MutableMap<Int, ItemBindingView<T>>,
+    var objectList: MutableList<T> = mutableListOf()
+    ) : RecyclerView.Adapter<ComplexBindingAdapter.ViewHolder>() {
 
     //获取类型
     override fun getItemViewType(position: Int): Int {

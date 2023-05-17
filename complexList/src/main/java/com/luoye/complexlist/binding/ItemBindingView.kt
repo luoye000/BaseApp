@@ -6,9 +6,9 @@ import androidx.viewbinding.ViewBinding
 import com.luoye.complexlist.bean.ComplexBean
 import com.luoye.complexlist.view.ComplexAdapter
 
-interface ItemBindingView<T : ComplexBean, V : ViewBinding> {
+interface ItemBindingView<T : ComplexBean> {
 
-    fun onCreateViewHolder(parent: ViewGroup, viewType: Int): V
+    fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewBinding
 
     fun onBindViewHolder(bean: T, binding: ViewBinding, position: Int)
 
