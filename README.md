@@ -2,6 +2,34 @@
 
 ## 食用方法
 
+### 提示（2.0.0 开始移除了 java 编写的基类 BaseApp 全部转为 Kotlin  ）
+#### 2.0.0 发生大的改动与之前版本不兼容 具体使用方法请查看演示Demo
+
+
+```
+android {
+    ...
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+}
+
+dependencies {
+    ...
+    //所有
+    implementation 'com.github.luoye000:BaseApp:2.0.0'
+    //kt基类 
+    implementation 'com.github.luoye000.BaseApp:KtBase:2.0.0'
+    //多布局RecyclerView
+    implementation 'com.github.luoye000.BaseApp:complexlist:2.0.0'
+} 
+```
+
+
+
+## 以下为旧版本方案
+
 ### 提示
 项目 1.3.0 开始向kt语言转换 1.3.0 后不建议使用导入所有的包 KtBase 当前处于测试阶段谨慎使用！！
 ### 导入 [![](https://jitpack.io/v/luoye000/BaseApp.svg)](https://jitpack.io/#luoye000/BaseApp)
