@@ -1,28 +1,28 @@
 package com.luoye.ktbase.binding.dialog
 
-
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.view.Gravity
 import android.view.WindowManager
 import androidx.annotation.StyleRes
+import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.viewbinding.ViewBinding
+import androidx.lifecycle.ViewModel
 import com.luoye.ktbase.binding.getViewBinding
 
 /**
  *
- * Created by: 
- * Time: 2022/11/30
- * user: 基类
+ * Created by:
+ * user:
  *
  */
-abstract class BaseViewDialog<V : ViewBinding>(
+abstract class BaseDataDialog<V : ViewDataBinding,M :ViewModel>(
     context: Context,
     @StyleRes res: Int,
-    val owner: LifecycleOwner? = null
+    val viewModel: M,
+    val owner: LifecycleOwner
 ) : Dialog(context, res), DefaultLifecycleObserver {
 
     protected val binding by lazy { getViewBinding<V>(inflater = layoutInflater, position = 0) }
@@ -30,7 +30,8 @@ abstract class BaseViewDialog<V : ViewBinding>(
         super<Dialog>.onCreate(savedInstanceState)
         setContentView(binding.root)
         setCanceledOnTouchOutside(true) //边缘点击消失
-        owner?.lifecycle?.addObserver(this)
+        owner.lifecycle.addObserver(this)
+        binding.lifecycleOwner=owner
         initDialog()
     }
 

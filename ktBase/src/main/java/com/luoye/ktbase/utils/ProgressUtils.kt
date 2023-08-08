@@ -22,11 +22,11 @@ open class ProgressUtils {
         @Synchronized
         fun showProgressRingDialog(context: Context, message: String) {
             if (progressDialog != null) closeProgressDialog()
-            progressDialog = ProgressDialog(context)
-            progressDialog!!.setMessage(message)
-            progressDialog!!.setCancelable(false)
-            progressDialog!!.setProgressStyle(ProgressDialog.STYLE_SPINNER)
-            progressDialog!!.show()
+            progressDialog = progressDialog?: ProgressDialog(context)
+            progressDialog?.setMessage(message)
+            progressDialog?.setCancelable(false)
+            progressDialog?.setProgressStyle(ProgressDialog.STYLE_SPINNER)
+            progressDialog?.show()
         }
 
         /**
@@ -34,8 +34,8 @@ open class ProgressUtils {
          */
         @Synchronized
         fun showProgressBarDialog(context: Context, message: String) {
-            closeProgressDialog()
-            progressDialog = ProgressDialog(context)
+            if (progressDialog != null)closeProgressDialog()
+            progressDialog = progressDialog?: ProgressDialog(context)
             progressDialog?.let {
                 it.setMessage(message)
                 it.setCancelable(false)
