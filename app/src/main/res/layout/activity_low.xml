@@ -4,54 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:layout_height="match_parent"
-    tools:context=".LazyActivity">
-
-
+    tools:context=".lowbinding.LowActivity">
 
 
 
     <TextView
-        android:id="@+id/complex_text"
+        android:id="@+id/but1"
         android:layout_width="match_parent"
         android:layout_marginVertical="7.5dp"
         android:layout_marginHorizontal="15sp"
         android:layout_height="50dp"
         android:background="#f5f5f5"
         android:gravity="center"
-        android:text="多布局列表" />
-
+        android:text="ViewBinding" />
 
     <TextView
-        android:id="@+id/binding_text"
+        android:id="@+id/but2"
         android:layout_width="match_parent"
         android:layout_marginVertical="7.5dp"
         android:layout_marginHorizontal="15sp"
         android:layout_height="50dp"
         android:background="#f5f5f5"
         android:gravity="center"
-        android:text="Binding" />
-
-
+        android:text="ViewDataBinding" />
     <TextView
-        android:id="@+id/lazy_text"
+        android:id="@+id/but3"
         android:layout_width="match_parent"
         android:layout_marginVertical="7.5dp"
         android:layout_marginHorizontal="15sp"
         android:layout_height="50dp"
         android:background="#f5f5f5"
         android:gravity="center"
-        android:text="Fragment懒加载" />
-
-    <TextView
-        android:id="@+id/binding_x"
-        android:layout_width="match_parent"
-        android:layout_marginVertical="7.5dp"
-        android:layout_marginHorizontal="15sp"
-        android:layout_height="50dp"
-        android:background="#f5f5f5"
-        android:gravity="center"
-        android:text="注解实现低侵入的binding" />
+        android:text="Fragment" />
 
 
 </LinearLayout>

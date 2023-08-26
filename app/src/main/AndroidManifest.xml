@@ -10,16 +10,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BaseApp" >
         <activity
-            android:name="com.text.luoye.ComplexActivity"
+            android:name=".lowbinding.LowActivity3"
             android:exported="false" />
         <activity
-            android:name="com.text.luoye.LazyActivity"
+            android:name=".lowbinding.LowActivity2"
             android:exported="false" />
         <activity
-            android:name="com.text.luoye.BindingTextActivity"
+            android:name=".lowbinding.LowActivity1"
             android:exported="false" />
         <activity
-            android:name="com.text.luoye.MainActivity"
+            android:name=".lowbinding.LowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComplexActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LazyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BindingTextActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

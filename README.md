@@ -27,33 +27,79 @@ dependencies {
 
 ### 导入 [![](https://jitpack.io/v/luoye000/BaseApp.svg)](https://jitpack.io/#luoye000/BaseApp)
 
-```
-android {
-    ...
-    buildFeatures {
-        viewBinding true
-        dataBinding true
-    }
-}
-
-dependencies {
-    ...
-    //所有
-    implementation 'com.github.luoye000:BaseApp:+'
-    //java基类(2.0.0后被移除)
-    implementation 'com.github.luoye000.BaseApp:BaseApp:+'
-    //kt基类 
-    implementation 'com.github.luoye000.BaseApp:KtBase:+'
-    //多布局RecyclerView
-    implementation 'com.github.luoye000.BaseApp:complexlist:+'//使用方案参考Demo
-} 
-```
 
 ### 混淆
 ```
  #使用 基类 的需要添加混淆
  -keep class  使用依赖包项目的包名.databinding.* {*;}
  ...
+```
+
+### 2.1.0 开始加入注解实现 viewBinding,dataBinding 暂时支持 （Activity Fragment）
+### 体使用方案查看Demo
+
+```
+
+//方案一
+@ContentViewX(R.layout.activity_low)
+public class LowActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //必须要写的
+        XTool.inject(this);
+    }
+}
+
+
+//方案二
+@ViewBindingX(binding = ActivityLow1Binding.class)
+public class LowActivity1 extends AppCompatActivity {
+
+
+    @BindingX
+    private ActivityLow1Binding binding;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //必须要写的
+        XTool.inject(this);
+
+        binding.text.setText(this.getClass().getName());
+    }
+}
+
+
+//方案三
+@ViewDataBindingX(binding = ActivityLow2Binding.class)
+public class LowActivity2 extends AppCompatActivity {
+
+
+    @BindingX
+    private ActivityLow2Binding binding;
+
+    @ViewModelX(vmClass = MainModel.class)
+    private MainModel mainModel;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //必须要写的
+        XTool.inject(this);
+
+
+        binding.setData(mainModel);
+        mainModel.getText().postValue(this.getClass().getName());
+    }
+}
+
+//更多使用查看Demo
+
+
+
 ```
 
 ## 1.介绍 viewBinding,dataBinding 的封装 
